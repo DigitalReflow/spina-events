@@ -8,7 +8,7 @@ RSpec.feature "Admin Conferences", type: :feature do
 
     it 'shows all the conferences' do
       visit '/admin/events/conferences'
-      expect(page).to have_css 'tbody tr', count: 3
+      expect(page).to have_css 'ol li', count: 3
     end
   end
 end
