@@ -1,0 +1,2 @@
+= form_for [spina, :admin, :events, @conference], url: spina.admin_events_conference_path(@conference.id), html: {id: 'conference_form', autocomplete: "off"} do |f|
+  = render 'form', f: f

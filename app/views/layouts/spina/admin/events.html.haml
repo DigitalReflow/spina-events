@@ -1,0 +1,18 @@
+- content_for(:permanent_notice) do
+  - unless current_account.robots_allowed?
+    .permanent-notice.permanent-notice-info
+      = icon('search')
+      %p
+        =t 'spina.pages.invisible_to_search_engines'
+        %small=t 'spina.pages.invisible_to_search_engines_description'
+
+- content_for :application do
+  %header#header
+    #header_actions
+      = yield(:header_actions) if content_for?(:header_actions)
+
+    .breadcrumbs= render_breadcrumbs separator: '<div class="divider"></div>'
+
+  = yield
+
+= render template: "layouts/spina/admin/admin"

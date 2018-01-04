@@ -1,0 +1,27 @@
+en:
+  spina:
+    view: View
+
+    events:
+      title: Events
+
+      conferences:
+        title: Conferences
+        new: New conference
+        save: Save conference
+        saving: Saving...
+        saved: Conference saved
+        conference_content: Content
+        conference_configuration: Settings
+        concept: Draft
+
+  activerecord:
+    attributes:
+      spina/events/conference:
+        title: Conference title
+        title_placeholder: Conference title
+        description: Conference description
+        draft: Draft
+        draft_description: Great for when your conference is not quite finished
+        slug: Permalink
+        slug_description: Permalink URL for this conference

@@ -1,0 +1,14 @@
+%li.dd-item{data: { id: conference.id }}
+  %div.dd-item-inner
+    = link_to spina.edit_admin_events_conference_path(conference.id), class: 'button button-link button-small sortable-link' do
+      = conference.title
+      - if conference.draft?
+        %small.label (#{t('spina.events.conferences.concept')})
+    %span.pull-right
+      = link_to spina.events_conference_path(conference), class: 'button button-small button-link dd-nodrag', target: :blank do
+        = icon 'eye'
+        = t('spina.view')
+
+      = link_to spina.edit_admin_events_conference_path(conference.id), class: 'button button-link' do
+        = icon 'pencil-outline'
+        = t('spina.events.conferences.edit')

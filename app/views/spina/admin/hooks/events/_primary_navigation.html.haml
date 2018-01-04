@@ -1,0 +1,8 @@
+%li{class: ('active' if (current_admin_path.start_with?('/events')))}
+  = link_to admin_events_conferences_path do
+    = icon 'comment'
+    = t('spina.events.title')
+    = icon 'caret-right'
+  %ul
+    %li{class: ('active' if current_admin_path.start_with?('/events/conferences'))}
+      = link_to t('spina.events.conferences.title'), admin_events_conferences_path

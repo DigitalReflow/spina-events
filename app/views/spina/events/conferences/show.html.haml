@@ -1,0 +1,6 @@
+%h1= @conference.title
+
+- if @conference.photo
+  = image_tag @conference.photo.file.image.url
+
+!= @conference.description
