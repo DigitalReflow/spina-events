@@ -1,3 +1,6 @@
+[![Maintainability](https://api.codeclimate.com/v1/badges/e9cb3d970d7dced2fe0a/maintainability)](https://codeclimate.com/github/DigitalReflow/spina-events/maintainability)
+[![Test Coverage](https://api.codeclimate.com/v1/badges/e9cb3d970d7dced2fe0a/test_coverage)](https://codeclimate.com/github/DigitalReflow/spina-events/test_coverage)
+
 # Spina::Events
 Short description and motivation.
 
