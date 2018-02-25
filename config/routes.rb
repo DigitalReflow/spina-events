@@ -8,6 +8,7 @@ Spina::Engine.routes.draw do
   namespace :admin do
     namespace :events do
       resources :conferences
+      resources :organisations
     end
   end
 end

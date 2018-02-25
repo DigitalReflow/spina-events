@@ -71,6 +71,18 @@ ActiveRecord::Schema.define(version: 20180103223636) do
     t.index ["slug"], name: "index_spina_events_conferences_on_slug"
   end
 
+  create_table "spina_events_organisations", force: :cascade do |t|
+    t.string "name"
+    t.string "website"
+    t.string "slug"
+    t.string "twitter"
+    t.string "linkedin"
+    t.string "facebook"
+    t.integer "photo_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
   create_table "spina_layout_parts", id: :serial, force: :cascade do |t|
     t.string "title"
     t.string "name"

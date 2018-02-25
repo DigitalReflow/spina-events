@@ -15,6 +15,13 @@ en:
         conference_configuration: Settings
         concept: Draft
 
+      organisations:
+        title: Organisations
+        new: New organisation
+        save: Save organisation
+        saving: Saving...
+        saved: Organisation saved
+
   activerecord:
     attributes:
       spina/events/conference:
@@ -25,3 +32,15 @@ en:
         draft_description: Great for when your conference is not quite finished
         slug: Permalink
         slug_description: Permalink URL for this conference
+
+      spina/events/organisation:
+        name: Organisation name
+        title_placeholder: Organisation name
+        website: Website
+        website_placeholder: Website URL for this organisation
+        twitter: Twitter
+        twitter_placeholder: Twitter URL for this organisation
+        facebook: Facebook
+        facebook_placeholder: Facebook URL for this organisation
+        linkedin: LinkedIn
+        linkedin_placeholder: LinkedIn URL for this organisation
