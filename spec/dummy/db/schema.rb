@@ -64,10 +64,15 @@ ActiveRecord::Schema.define(version: 20180103223636) do
     t.text "description"
     t.string "slug"
     t.boolean "draft", default: true
-    t.bigint "photo_id"
+    t.integer "photo_id"
+    t.datetime "start_date"
+    t.datetime "end_date"
+    t.string "location"
+    t.text "sponsorship_info"
+    t.text "conference_contact"
+    t.integer "attachment_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["photo_id"], name: "index_spina_events_conferences_on_photo_id"
     t.index ["slug"], name: "index_spina_events_conferences_on_slug"
   end
 

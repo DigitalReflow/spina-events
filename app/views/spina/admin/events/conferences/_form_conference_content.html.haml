@@ -2,19 +2,37 @@
   .horizontal-form
     .horizontal-form-group
       .horizontal-form-label
-        = Spina::Events::Conference.human_attribute_name :title
+        = Spina::Events::Conference.human_attribute_name(:title)
       .horizontal-form-content
         = f.text_field :title, placeholder: Spina::Events::Conference.human_attribute_name(:title_placeholder)
 
     .horizontal-form-group
       .horizontal-form-label
-        = Spina::Events::Conference.human_attribute_name :description
+        = Spina::Events::Conference.human_attribute_name(:description)
       .horizontal-form-content
         = render 'spina/admin/shared/rich_text_field', f: f, field: :description
 
     .horizontal-form-group
       .horizontal-form-label
-        = Spina::Events::Conference.human_attribute_name :photo
+        = Spina::Events::Conference.human_attribute_name(:start_date)
+      .horizontal-form-content
+        = f.text_field :start_date, value: (@conference.start_date.strftime("%d-%m-%Y") unless @conference.new_record?), class: 'datepicker'
+
+    .horizontal-form-group
+      .horizontal-form-label
+        = Spina::Events::Conference.human_attribute_name(:end_date)
+      .horizontal-form-content
+        = f.text_field :end_date, value: (@conference.end_date.strftime("%d-%m-%Y") unless @conference.new_record?), class: 'datepicker'
+
+    .horizontal-form-group
+      .horizontal-form-label
+        = Spina::Events::Conference.human_attribute_name(:location)
+      .horizontal-form-content
+        = f.text_field :location, placeholder: Spina::Events::Conference.human_attribute_name(:location_placeholder)
+
+    .horizontal-form-group
+      .horizontal-form-label
+        = Spina::Events::Conference.human_attribute_name(:photo)
       .horizontal-form-content
         = link_to spina.photo_select_admin_photos_path(f.object_name, selected_photo_id: f.object.try(:photo_id), hidden_field_id: 'photo_id'), remote: true, class: 'media_picker clearfix' do
           .placeholder
@@ -26,4 +44,19 @@
             .image
               = image_tag f.object.photo.file.thumb
 
-          = f.hidden_field :photo_id, data: { hidden_field_id: 'photo_id'}
+          = f.hidden_field :photo_id, data: { hidden_field_id: 'photo_id' }
+
+    .horizontal-form-group
+      .horizontal-form-label
+        = Spina::Events::Conference.human_attribute_name(:file)
+      .horizontal-form-content
+        = link_to spina.select_admin_attachments_path(f.object_name, selected_attachment_id: f.object.try(:attachment_id), hidden_field_id: 'attachment_id'), remote: true, class: 'media_picker clearfix' do
+          .placeholder
+            %span.button.button-small.button-round
+              %i.icon.icon-dots
+              = t('spina.choose_from_library')
+
+          - if f.object.attachment && f.object.attachment.file.present?
+            .attachment= f.object.attachment.name
+
+          = f.hidden_field :attachment_id, data: { hidden_field_id: 'attachment_id' }

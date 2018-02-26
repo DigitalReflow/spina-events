@@ -7,7 +7,8 @@ module Spina
     friendly_id :title, use: :slugged
 
     belongs_to :photo, optional: true
-    validates :title, :description, presence: true
+    belongs_to :attachment, optional: true
+    validates :title, :description, :start_date, :end_date, presence: true
 
     # Create a 301 redirect if the slug changed
     after_save :rewrite_rule, if: -> { saved_change_to_slug? }
