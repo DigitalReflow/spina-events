@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-RSpec.describe Spina::Admin::Events::ConferencesController, type: :controller do
+RSpec.describe Spina::Events::Admin::ConferencesController, type: :controller do
   let(:conferences) { FactoryBot.create_list :spina_events_conference, 3 }
   let(:events_conference) { FactoryBot.create :spina_events_conference }
   let(:draft_conferences) { FactoryBot.create_list :spina_events_conference, 3, draft: true }

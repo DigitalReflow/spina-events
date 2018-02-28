@@ -25,7 +25,7 @@
   #header_actions
     %button.button.button-primary{type: 'submit', style: 'margin-right: 0', data: {disable_with: t('spina.events.conferences.saving')}}
       = icon('check')
-      =t 'spina.events.conferences.save'
+      = t('spina.events.conferences.save')
 
   %nav#secondary.tabs
     %ul
@@ -37,7 +37,7 @@
 
 - Mobility.with_locale(@locale) do
   - @tabs.each do |tab|
-    = render "spina/admin/events/conferences/form_#{tab}", f: f
+    = render "spina/events/admin/conferences/form_#{tab}", f: f
 
   - unless @conference.new_record?
-    .pull-right= link_to t('spina.permanently_delete'), spina.admin_events_conference_path(@conference.id), method: :delete, data: {confirm: t('spina.conference.delete_confirmation', subject: @conference.title)}, class: 'button button-link button-danger'
+    .pull-right= link_to t('spina.permanently_delete'), spina.events_admin_conference_path(@conference.id), method: :delete, data: {confirm: t('spina.conference.delete_confirmation', subject: @conference.title)}, class: 'button button-link button-danger'

@@ -1,6 +1,6 @@
-module Spina
+module Spina::Events
   module Admin
-    class Events::VenuesController < AdminController
+    class VenuesController < AdminController
       before_action :set_breadcrumb
       before_action :set_locale
 
@@ -19,7 +19,7 @@ module Spina
       def create
         @venue = Spina::Events::Venue.new(venue_params)
         if @venue.save
-          redirect_to spina.edit_admin_events_venue_url(@venue.id), notice: t('spina.events.venues.saved')
+          redirect_to spina.edit_events_admin_venue_url(@venue.id), notice: t('spina.events.venues.saved')
         else
           add_breadcrumb I18n.t('spina.events.venues.new')
           render :new, layout: 'spina/admin/admin'
@@ -40,7 +40,7 @@ module Spina
             add_breadcrumb @venue.name
             @venue.touch
             I18n.locale = I18n.default_locale
-            format.html { redirect_to spina.edit_admin_events_venue_url(@venue.id, params: {locale: @locale}), notice: t('spina.events.venues.saved') }
+            format.html { redirect_to spina.edit_events_admin_venue_url(@venue.id, params: {locale: @locale}), notice: t('spina.events.venues.saved') }
             format.js
           else
             format.html do
@@ -53,13 +53,13 @@ module Spina
       def destroy
         @venue = Spina::Events::Venue.find(params[:id])
         @venue.destroy
-        redirect_to spina.admin_events_venues_path
+        redirect_to spina.events_admin_venues_path
       end
 
       private
 
       def set_breadcrumb
-        add_breadcrumb I18n.t('spina.events.venues.title'), spina.admin_events_venues_path
+        add_breadcrumb I18n.t('spina.events.venues.title'), spina.events_admin_venues_path
       end
 
       def set_locale

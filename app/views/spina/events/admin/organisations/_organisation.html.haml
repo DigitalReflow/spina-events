@@ -1,0 +1,8 @@
+%li.dd-item{data: { id: organisation.id }}
+  %div.dd-item-inner
+    = link_to spina.edit_events_admin_organisation_path(organisation.id), class: 'button button-link button-small sortable-link' do
+      = organisation.name
+    %span.pull-right
+      = link_to spina.edit_events_admin_organisation_path(organisation.id), class: 'button button-link' do
+        = icon 'pencil-outline'
+        = t('spina.events.organisations.edit')

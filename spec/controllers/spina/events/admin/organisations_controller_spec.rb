@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-RSpec.describe Spina::Admin::Events::OrganisationsController, type: :controller do
+RSpec.describe Spina::Events::Admin::OrganisationsController, type: :controller do
   let(:organisations) { FactoryBot.create_list :spina_events_organisation, 3 }
   let(:events_organisation) { FactoryBot.create :spina_events_organisation }
   let(:organisation_attributes) { FactoryBot.attributes_for :spina_events_organisation }

@@ -1,5 +1,5 @@
-module Spina
-  class Events::VenuesController < ApplicationController
+module Spina::Events
+  class VenuesController < ApplicationController
 
     before_action :find_conference
 

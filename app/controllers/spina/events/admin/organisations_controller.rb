@@ -1,6 +1,6 @@
-module Spina
+module Spina::Events
   module Admin
-    class Events::OrganisationsController < AdminController
+    class OrganisationsController < AdminController
       before_action :set_breadcrumb
       before_action :set_locale
 
@@ -19,7 +19,7 @@ module Spina
       def create
         @organisation = Spina::Events::Organisation.new(organisation_params)
         if @organisation.save
-          redirect_to spina.edit_admin_events_organisation_url(@organisation.id), notice: t('spina.events.organisations.saved')
+          redirect_to spina.edit_events_admin_organisation_url(@organisation.id), notice: t('spina.events.organisations.saved')
         else
           add_breadcrumb I18n.t('spina.events.organisations.new')
           render :new, layout: 'spina/admin/admin'
@@ -40,7 +40,7 @@ module Spina
             add_breadcrumb @organisation.name
             @organisation.touch
             I18n.locale = I18n.default_locale
-            format.html { redirect_to spina.edit_admin_events_organisation_url(@organisation.id, params: {locale: @locale}), notice: t('spina.events.organisations.saved') }
+            format.html { redirect_to spina.edit_events_admin_organisation_url(@organisation.id, params: {locale: @locale}), notice: t('spina.events.organisations.saved') }
             format.js
           else
             format.html do
@@ -53,13 +53,13 @@ module Spina
       def destroy
         @organisation = Spina::Events::Organisation.find(params[:id])
         @organisation.destroy
-        redirect_to spina.admin_events_organisations_path
+        redirect_to spina.events_admin_organisations_path
       end
 
       private
 
       def set_breadcrumb
-        add_breadcrumb I18n.t('spina.events.organisations.title'), spina.admin_events_organisations_path
+        add_breadcrumb I18n.t('spina.events.organisations.title'), spina.events_admin_organisations_path
       end
 
       def set_locale

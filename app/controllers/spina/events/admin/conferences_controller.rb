@@ -1,6 +1,6 @@
-module Spina
+module Spina::Events
   module Admin
-    class Events::ConferencesController < AdminController
+    class ConferencesController < AdminController
       before_action :set_breadcrumb
       before_action :set_tabs, only: [:new, :create, :edit, :update]
       before_action :set_locale
@@ -20,7 +20,7 @@ module Spina
       def create
         @conference = Spina::Events::Conference.new(conference_params)
         if @conference.save
-          redirect_to spina.edit_admin_events_conference_url(@conference.id), notice: t('spina.events.conferences.saved')
+          redirect_to spina.edit_events_admin_conference_url(@conference.id), notice: t('spina.events.conferences.saved')
         else
           add_breadcrumb I18n.t('spina.events.conferences.new')
           render :new, layout: 'spina/admin/admin'
@@ -41,7 +41,7 @@ module Spina
             add_breadcrumb @conference.title
             @conference.touch
             I18n.locale = I18n.default_locale
-            format.html { redirect_to spina.edit_admin_events_conference_url(@conference.id, params: {locale: @locale}), notice: t('spina.events.conferences.saved') }
+            format.html { redirect_to spina.edit_events_admin_conference_url(@conference.id, params: {locale: @locale}), notice: t('spina.events.conferences.saved') }
             format.js
           else
             format.html do
@@ -54,13 +54,13 @@ module Spina
       def destroy
         @conference = Spina::Events::Conference.find(params[:id])
         @conference.destroy
-        redirect_to spina.admin_events_conferences_path
+        redirect_to spina.events_admin_conferences_path
       end
 
       private
 
       def set_breadcrumb
-        add_breadcrumb I18n.t('spina.events.conferences.title'), spina.admin_events_conferences_path
+        add_breadcrumb I18n.t('spina.events.conferences.title'), spina.events_admin_conferences_path
       end
 
       def set_tabs
