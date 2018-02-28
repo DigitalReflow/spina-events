@@ -8,6 +8,7 @@ module Spina
 
     belongs_to :photo, optional: true
     belongs_to :attachment, optional: true
+    belongs_to :venue
     validates :title, :description, :start_date, :end_date, presence: true
 
     # Create a 301 redirect if the slug changed

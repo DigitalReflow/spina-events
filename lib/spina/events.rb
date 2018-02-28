@@ -1,4 +1,5 @@
 require 'friendly_id'
+require 'geocoder'
 require 'spina'
 
 require 'spina/events/engine'

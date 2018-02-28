@@ -12,6 +12,7 @@ class CreateSpinaEventsConferences < ActiveRecord::Migration[5.1]
       t.text :sponsorship_info
       t.text :conference_contact
       t.integer :attachment_id
+      t.integer :venue_id
 
       t.timestamps
     end

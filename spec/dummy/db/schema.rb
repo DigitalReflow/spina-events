@@ -71,6 +71,7 @@ ActiveRecord::Schema.define(version: 20180103223636) do
     t.text "sponsorship_info"
     t.text "conference_contact"
     t.integer "attachment_id"
+    t.integer "venue_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["slug"], name: "index_spina_events_conferences_on_slug"
@@ -83,6 +84,22 @@ ActiveRecord::Schema.define(version: 20180103223636) do
     t.string "twitter"
     t.string "linkedin"
     t.string "facebook"
+    t.integer "photo_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "spina_events_venues", force: :cascade do |t|
+    t.string "name"
+    t.text "description"
+    t.string "address_line_1"
+    t.string "address_line_2"
+    t.string "city"
+    t.string "country"
+    t.string "postcode"
+    t.float "latitude"
+    t.float "longitude"
+    t.string "slug"
     t.integer "photo_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false

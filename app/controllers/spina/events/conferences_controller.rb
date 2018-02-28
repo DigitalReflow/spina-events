@@ -1,5 +1,5 @@
 module Spina
-  class Events::ConferencesController < ::Spina::ApplicationController
+  class Events::ConferencesController < ApplicationController
 
     before_action :set_page
     before_action :find_conferences, only: [:index]

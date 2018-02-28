@@ -20,6 +20,7 @@ Gem::Specification.new do |s|
   s.add_runtime_dependency 'spina', '~> 0.11', '>= 0.11.1'
   s.add_runtime_dependency 'friendly_id', '~> 5.2', '>= 5.2.1'
   s.add_runtime_dependency 'kaminari'
+  s.add_runtime_dependency 'geocoder'
 
   s.add_development_dependency 'pg'
   s.add_development_dependency 'simplecov', '~> 0'

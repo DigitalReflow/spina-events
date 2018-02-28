@@ -32,6 +32,13 @@
 
     .horizontal-form-group
       .horizontal-form-label
+        = Spina::Events::Conference.human_attribute_name(:venue)
+      .horizontal-form-content
+        .select-dropdown
+          = f.select :venue_id, Spina::Events::Venue.all.collect{ |venue| [venue.name, venue.id] }
+
+    .horizontal-form-group
+      .horizontal-form-label
         = Spina::Events::Conference.human_attribute_name(:photo)
       .horizontal-form-content
         = link_to spina.photo_select_admin_photos_path(f.object_name, selected_photo_id: f.object.try(:photo_id), hidden_field_id: 'photo_id'), remote: true, class: 'media_picker clearfix' do
