@@ -1,7 +1,5 @@
-require_dependency 'spina/events'
-
-module Spina
-  class Events::Organisation < ApplicationRecord
+module Spina::Events
+  class Organisation < ApplicationRecord
     extend FriendlyId
 
     friendly_id :name, use: :slugged

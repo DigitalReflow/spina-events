@@ -1,7 +1,5 @@
-require_dependency 'spina/events'
-
-module Spina
-  class Events::Venue < ApplicationRecord
+module Spina::Events
+  class Venue < ApplicationRecord
     extend FriendlyId
 
     geocoded_by :postcode

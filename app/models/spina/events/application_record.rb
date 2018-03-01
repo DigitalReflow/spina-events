@@ -1,4 +1,4 @@
-module Spina
+module Spina::Events
   class ApplicationRecord < ActiveRecord::Base
     extend Mobility
 

@@ -1,7 +1,5 @@
-require_dependency 'spina/events'
-
-module Spina
-  class Events::Conference < ApplicationRecord
+module Spina::Events
+  class Conference < ApplicationRecord
     extend FriendlyId
 
     friendly_id :title, use: :slugged
@@ -24,7 +22,7 @@ module Spina
     end
 
     def rewrite_rule
-      RewriteRule.create(old_path: "/events/conferences/#{slug_before_last_save}", new_path: "/events/conferences/#{slug}")
+      Spina::RewriteRule.create(old_path: "/conferences/#{slug_before_last_save}", new_path: "/conferences/#{slug}")
     end
   end
 end
