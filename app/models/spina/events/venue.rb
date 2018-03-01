@@ -12,9 +12,6 @@ module Spina::Events
 
     validates :name, presence: true, uniqueness: true
 
-    # Create a 301 redirect if the slug changed
-    after_save :rewrite_rule, if: -> { saved_change_to_slug? }
-
     def full_address
       "#{address_line_1}, #{address_line_2}, #{city}, #{postcode}, #{country}"
     end
@@ -23,10 +20,6 @@ module Spina::Events
 
     def should_generate_new_friendly_id?
       slug.blank? || super
-    end
-
-    def rewrite_rule
-      RewriteRule.create(old_path: "/events/venues/#{slug_before_last_save}", new_path: "/events/venues/#{slug}")
     end
   end
 end
