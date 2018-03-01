@@ -57,8 +57,8 @@
         .horizontal-form-label
           = Spina::Events::Conference.human_attribute_name(:organisation)
         .horizontal-form-content
-          .select-dropdown
-            = f.select :organisation_id, Spina::Events::Organisation.all.collect{ |org| [org.name, org.id] }
+          = f.select :organisation_id, options_for_select(Spina::Events::Organisation.pluck(:name, :id), f.object.organisation_id), {}, class: 'select2', style: 'width: 100%'
+
       .horizontal-form-group
         .horizontal-form-label
           = Spina::Events::Venue.human_attribute_name :photo

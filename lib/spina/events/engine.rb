@@ -10,6 +10,10 @@ module Spina
         end
       end
 
+      config.to_prepare do
+        Rails.application.config.assets.precompile += %w(spina/events/admin/events.js spina/events/admin/events.css)
+      end
+
       config.generators do |g|
         g.test_framework :rspec, fixture: false
         g.fixture_replacement :factory_bot, dir: 'spec/factories'
