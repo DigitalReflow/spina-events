@@ -32,10 +32,17 @@
 
     .horizontal-form-group
       .horizontal-form-label
+        = Spina::Events::Conference.human_attribute_name(:speakers)
+      .horizontal-form-content
+        .select-dropdown
+          = f.select :speaker_ids, Spina::Events::Speaker.all.collect{ |speaker| [speaker.name, speaker.id] }, { prompt: "Please select"}, { multiple: true }
+
+    .horizontal-form-group
+      .horizontal-form-label
         = Spina::Events::Conference.human_attribute_name(:venue)
       .horizontal-form-content
         .select-dropdown
-          = f.select :venue_id, Spina::Events::Venue.all.collect{ |venue| [venue.name, venue.id] }
+          = f.select :venue_id, Spina::Events::Venue.all.collect{ |venue| [venue.name, venue.id] }, { prompt: "Please select"}
 
     .horizontal-form-group
       .horizontal-form-label

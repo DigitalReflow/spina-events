@@ -1,0 +1,7 @@
+%li{class: dom_class(speaker), id: dom_id(speaker)}
+  = image_tag speaker.photo.file_url(:image)
+  %h3= link_to speaker.name, spina.events_conference_speaker_path(@conference, speaker)
+  != speaker.bio
+  = image_tag speaker.organisation.photo.file_url(:image)
+  %p= speaker.organisation.name
+  %p= speaker.job_title

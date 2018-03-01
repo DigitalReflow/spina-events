@@ -1,0 +1,16 @@
+%header#header
+  .breadcrumbs= render_breadcrumbs seperator: '<div class="divider"></div>'
+  #header_actions
+    %span
+      = link_to spina.new_events_admin_speaker_path, class: 'button button-primary' do
+        = icon('plus')
+        = t('spina.events.speakers.new')
+
+.well
+  - if @speakers.any?
+    .dd#pages_list
+      %ol.dd-list
+        = render partial: 'speaker', collection: @speakers
+  - else
+    %em
+      = t('spina.events.speakers.empty', scaffold_name: t('spina.events.speakers.scaffold_name_plural'))

@@ -7,6 +7,10 @@ module Spina::Events
     belongs_to :photo, optional: true
     belongs_to :attachment, optional: true
     belongs_to :venue
+
+    has_many :conference_speakers
+    has_many :speakers, through: :conference_speakers
+
     validates :title, :description, :start_date, :end_date, presence: true
 
     # Create a 301 redirect if the slug changed

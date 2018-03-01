@@ -29,6 +29,13 @@ en:
         saving: Saving...
         saved: Venue saved
 
+      speakers:
+        title: Speakers
+        new: New speaker
+        save: Save speaker
+        saving: Saving...
+        saved: Speaker saved
+
   activerecord:
     attributes:
       spina/events/conference:

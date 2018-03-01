@@ -82,7 +82,9 @@ module Spina::Events
                                             :end_date,
                                             :location,
                                             :conference_contact,
-                                            :sponsorship_info )
+                                            :sponsorship_info,
+                                            :venue_id,
+                                            speaker_ids: [] )
       end
 
     end

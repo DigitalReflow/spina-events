@@ -10,3 +10,5 @@
       = link_to t('spina.events.organisations.title'), spina.events_admin_organisations_path
     %li{class: ('active' if current_admin_path.start_with?('/events/venues'))}
       = link_to t('spina.events.venues.title'), spina.events_admin_venues_path
+    %li{class: ('active' if current_admin_path.start_with?('/events/speakers'))}
+      = link_to t('spina.events.speakers.title'), spina.events_admin_speakers_path

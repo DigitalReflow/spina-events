@@ -4,6 +4,7 @@ Spina::Engine.routes.draw do
 
     resources :conferences, only: [:index, :show] do
       get '/venue', to: 'venues#show'
+      resources :speakers, only: [:index, :show]
     end
 
     # Admin routes
@@ -12,6 +13,7 @@ Spina::Engine.routes.draw do
         resources :conferences
         resources :organisations
         resources :venues
+        resources :speakers
       end
     end
   end
