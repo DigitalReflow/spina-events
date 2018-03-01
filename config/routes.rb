@@ -1,5 +1,7 @@
 Spina::Engine.routes.draw do
   namespace :events, path: '' do
+    root to: 'conferences#index'
+
     resources :conferences, only: [:index, :show] do
       get '/venue', to: 'venues#show'
       resources :speakers, only: [:index, :show]
