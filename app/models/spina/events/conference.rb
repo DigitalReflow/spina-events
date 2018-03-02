@@ -11,6 +11,9 @@ module Spina::Events
     has_many :conference_speakers
     has_many :speakers, through: :conference_speakers
 
+    has_many :conference_attendees
+    has_many :attendees, through: :conference_attendees, source: :organisation
+
     validates :title, :description, :start_date, :end_date, presence: true
 
     # Create a 301 redirect if the slug changed

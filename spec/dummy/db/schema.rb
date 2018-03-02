@@ -59,6 +59,16 @@ ActiveRecord::Schema.define(version: 20180103223636) do
     t.datetime "updated_at", null: false
   end
 
+  create_table "spina_events_conference_attendees", force: :cascade do |t|
+    t.integer "conference_id"
+    t.integer "organisation_id"
+  end
+
+  create_table "spina_events_conference_speakers", force: :cascade do |t|
+    t.integer "conference_id"
+    t.integer "speaker_id"
+  end
+
   create_table "spina_events_conferences", force: :cascade do |t|
     t.string "title"
     t.text "description"

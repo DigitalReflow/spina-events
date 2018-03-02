@@ -44,6 +44,12 @@
 
     .horizontal-form-group
       .horizontal-form-label
+        = Spina::Events::Conference.human_attribute_name(:attendees)
+      .horizontal-form-content
+        = f.select :attendee_ids, options_for_select(Spina::Events::Organisation.pluck(:name, :id), f.object.attendee_ids), {}, class: 'select2', multiple: true, style: 'width: 100%'
+
+    .horizontal-form-group
+      .horizontal-form-label
         = Spina::Events::Conference.human_attribute_name(:photo)
       .horizontal-form-content
         = link_to spina.photo_select_admin_photos_path(f.object_name, selected_photo_id: f.object.try(:photo_id), hidden_field_id: 'photo_id'), remote: true, class: 'media_picker clearfix' do
