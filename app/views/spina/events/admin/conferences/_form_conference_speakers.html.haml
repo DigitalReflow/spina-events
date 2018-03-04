@@ -1,0 +1,7 @@
+#conference_speakers.tab-content.well
+  .horizontal-form
+    .horizontal-form-group
+      .horizontal-form-label
+        = Spina::Events::Conference.human_attribute_name(:speakers)
+      .horizontal-form-content
+        = f.select :speaker_ids, options_for_select(Spina::Events::Speaker.pluck(:name, :id), f.object.speaker_ids), {}, class: 'select2', multiple: true, style: 'width: 100%'

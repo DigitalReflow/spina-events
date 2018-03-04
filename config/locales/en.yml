@@ -11,8 +11,10 @@ en:
         save: Save conference
         saving: Saving...
         saved: Conference saved
-        conference_content: Content
+        conference_content: Main Info
         conference_configuration: Settings
+        conference_speakers: Speakers
+        conference_sponsors: Sponsors
         concept: Draft
 
       organisations:
@@ -48,8 +50,8 @@ en:
         slug_description: Permalink URL for this conference
         location: Location
         location_description: Location of the conference
-        file: Brochure
-        photo: Banner
+        file: Brochure PDF
+        photo: Banner image
 
       spina/events/organisation:
         name: Organisation name

@@ -18,15 +18,3 @@
           %small
             Current permalink:
             \ /events/conferences/#{@conference.slug}
-
-    .horizontal-form-group
-      .horizontal-form-label
-        = Spina::Events::Conference.human_attribute_name(:conference_contact)
-      .horizontal-form-content
-        = render 'spina/admin/shared/rich_text_field', f: f, field: :conference_contact
-
-    .horizontal-form-group
-      .horizontal-form-label
-        = Spina::Events::Conference.human_attribute_name(:sponsorship_info)
-      .horizontal-form-content
-        = render 'spina/admin/shared/rich_text_field', f: f, field: :sponsorship_info
