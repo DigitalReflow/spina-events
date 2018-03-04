@@ -1,0 +1,17 @@
+.well
+  .horizontal-form
+    .horizontal-form-group
+      .horizontal-form-label
+        = Spina::Events::Conference.human_attribute_name(:sponsor_type)
+      .horizontal-form-content
+        = f.select :sponsor_type, options_for_select([['Gold', 'gold'], ['Silver', 'silver'], ['Bronze', 'bronze']], f.object.sponsor_type), {}, class: 'select2', style: 'width: 100%'
+    .horizontal-form-group
+      .horizontal-form-label
+        = Spina::Events::Conference.human_attribute_name(:organisation)
+      .horizontal-form-content
+        = f.select :organisation_id, options_for_select(Spina::Events::Organisation.pluck(:name, :id), f.object.organisation_id), {}, class: 'select2', style: 'width: 100%'
+    .horizontal-form-group
+      .horizontal-form-label
+        = t('spina.delete')
+      .horizontal-form-content
+        = f.check_box :_destroy, data: { switch: true }

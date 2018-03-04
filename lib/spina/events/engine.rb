@@ -12,6 +12,10 @@ module Spina
 
       config.to_prepare do
         Rails.application.config.assets.precompile += %w(spina/events/admin/events.js spina/events/admin/events.css)
+
+        ActiveSupport.on_load(:action_view) do
+          include Spina::Events::AdminHelpers
+        end
       end
 
       config.generators do |g|
@@ -20,7 +24,6 @@ module Spina
         g.assets false
         g.helper false
       end
-
     end
   end
 end

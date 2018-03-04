@@ -1,0 +1,10 @@
+#conference_sponsors.tab-content
+  - if @conference.sponsors.present?
+    = f.fields_for :sponsors do |sponsor|
+      = render 'sponsor_fields', f: sponsor
+  - else
+    .well.no-sponsors
+      No sponsors
+  = link_to_add_sponsor f, :sponsors do
+    = icon('plus')
+    = t('spina.events.sponsors.add_sponsor')

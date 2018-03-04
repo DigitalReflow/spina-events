@@ -5,3 +5,19 @@ $(document).on('turbolinks:load', function() {
 $(document).on('turbolinks:before-cache', function() {
   $('select.select2').select2('destroy');
 });
+
+// Dynamically sponsor_fields as a nested form
+$(document).on('click', 'form .add_sponsor_fields', function(event) {
+  var regexp, time;
+  time = new Date().getTime();
+  regexp = new RegExp($(this).data('id'), 'g');
+  $(this).before($(this).data('fields').replace(regexp, time));
+  $(this).closest('form').trigger('spina:sponsor_fields_added');
+  $('.no-sponsors').slideUp();
+  event.preventDefault();
+});
+
+$(document).on('spina:sponsor_fields_added', 'form', function(e) {
+  $('select.select2').select2();
+  $('input[data-switch]').spinaSwitch();
+});
