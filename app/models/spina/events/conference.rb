@@ -17,6 +17,9 @@ module Spina::Events
     has_many :sponsors
     accepts_nested_attributes_for :sponsors, allow_destroy: true
 
+    has_many :questions
+    accepts_nested_attributes_for :questions, allow_destroy: true
+
     validates :title, :description, :start_date, :end_date, presence: true
 
     # Create a 301 redirect if the slug changed

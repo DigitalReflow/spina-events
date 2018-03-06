@@ -1,0 +1,10 @@
+#conference_questions.tab-content
+  - if @conference.questions.present?
+    = f.fields_for :questions do |question|
+      = render 'question_fields', f: question
+  - else
+    .well.no-questions
+      No questions
+  = link_to_add_question f, :questions do
+    = icon('plus')
+    = t('spina.events.questions.add_question')

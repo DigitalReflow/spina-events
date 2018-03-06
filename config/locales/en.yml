@@ -15,6 +15,7 @@ en:
         conference_configuration: Settings
         conference_speakers: Speakers
         conference_sponsors: Sponsors
+        conference_questions: Questions
         concept: Draft
 
       organisations:
@@ -38,6 +39,13 @@ en:
         saving: Saving...
         saved: Speaker saved
 
+      questions:
+        title: Questions
+        new: New question
+        save: Save question
+        saving: Saving...
+        saved: Question saved
+
   activerecord:
     attributes:
       spina/events/conference:
@@ -55,6 +63,18 @@ en:
 
       spina/events/organisation:
         name: Organisation name
+        title_placeholder: Organisation name
+        website: Website
+        website_placeholder: Website URL for this organisation
+        twitter: Twitter
+        twitter_placeholder: Twitter URL for this organisation
+        facebook: Facebook
+        facebook_placeholder: Facebook URL for this organisation
+        linkedin: LinkedIn
+        linkedin_placeholder: LinkedIn URL for this organisation
+
+      spina/events/question:
+        title: Title
         title_placeholder: Organisation name
         website: Website
         website_placeholder: Website URL for this organisation

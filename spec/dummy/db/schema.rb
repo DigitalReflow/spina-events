@@ -99,6 +99,15 @@ ActiveRecord::Schema.define(version: 20180103223636) do
     t.datetime "updated_at", null: false
   end
 
+  create_table "spina_events_questions", force: :cascade do |t|
+    t.string "title"
+    t.text "body"
+    t.integer "position"
+    t.integer "conference_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
   create_table "spina_events_speakers", force: :cascade do |t|
     t.string "name"
     t.string "slug"
@@ -109,6 +118,12 @@ ActiveRecord::Schema.define(version: 20180103223636) do
     t.integer "organisation_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+  end
+
+  create_table "spina_events_sponsors", force: :cascade do |t|
+    t.string "sponsor_type"
+    t.integer "conference_id"
+    t.integer "organisation_id"
   end
 
   create_table "spina_events_venues", force: :cascade do |t|
