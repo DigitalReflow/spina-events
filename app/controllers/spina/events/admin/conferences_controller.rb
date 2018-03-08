@@ -84,6 +84,7 @@ module Spina::Events
                                             :conference_contact,
                                             :sponsorship_info,
                                             :venue_id,
+                                            attendee_ids: [],
                                             speaker_ids: [],
                                             sponsors_attributes: [:sponsor_type, :_destroy, :id, :organisation_id],
                                             questions_attributes: [:title, :body, :_destroy, :id, :position] )
