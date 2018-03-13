@@ -1,0 +1,10 @@
+#conference_tickets.tab-content
+  - if @conference.tickets.present?
+    = f.fields_for :tickets do |ticket|
+      = render 'ticket_fields', f: ticket
+  - else
+    .well.no-tickets
+      No tickets
+  = link_to_add_ticket f, :tickets do
+    = icon('plus')
+    = t('spina.events.tickets.add_ticket')

@@ -5,6 +5,7 @@ Spina::Engine.routes.draw do
       resources :speakers, only: [:index, :show]
       resources :sponsors, only: [:index]
       resources :questions, only: [:index]
+      resources :tickets, only: [:index]
     end
 
     # Admin routes

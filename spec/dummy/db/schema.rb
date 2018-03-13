@@ -126,6 +126,16 @@ ActiveRecord::Schema.define(version: 20180103223636) do
     t.integer "organisation_id"
   end
 
+  create_table "spina_events_tickets", force: :cascade do |t|
+    t.string "name"
+    t.text "description"
+    t.string "code"
+    t.decimal "price", precision: 8, scale: 2, default: "0.0"
+    t.integer "conference_id"
+    t.integer "position"
+    t.index ["conference_id"], name: "index_spina_events_tickets_on_conference_id"
+  end
+
   create_table "spina_events_venues", force: :cascade do |t|
     t.string "name"
     t.text "description"

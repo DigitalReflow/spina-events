@@ -16,6 +16,7 @@ en:
         conference_speakers: Speakers
         conference_sponsors: Sponsors
         conference_questions: Questions
+        conference_tickets: Tickets
         concept: Draft
 
       organisations:
@@ -45,6 +46,13 @@ en:
         save: Save question
         saving: Saving...
         saved: Question saved
+
+      tickets:
+        title: Tickets
+        new: New ticket
+        save: Save ticket
+        saving: Saving...
+        saved: Ticket saved
 
   activerecord:
     attributes:

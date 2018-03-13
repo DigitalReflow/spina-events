@@ -39,5 +39,5 @@
   - @tabs.each do |tab|
     = render "spina/events/admin/conferences/form_#{tab}", f: f
 
-  - unless @conference.new_record?
-    .pull-right= link_to t('spina.permanently_delete'), spina.events_admin_conference_path(@conference.id), method: :delete, data: {confirm: t('spina.conference.delete_confirmation', subject: @conference.title)}, class: 'button button-link button-danger'
+- unless @conference.new_record?
+  .pull-right= link_to t('spina.permanently_delete'), spina.events_admin_conference_path(@conference.id), method: :delete, data: {confirm: t('spina.conference.delete_confirmation', subject: @conference.title)}, class: 'button button-link button-danger'

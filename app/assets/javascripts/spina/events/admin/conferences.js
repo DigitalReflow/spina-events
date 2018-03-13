@@ -36,3 +36,18 @@ $(document).on('click', 'form .add_question_fields', function(event) {
 $(document).on('spina:question_fields_added', 'form', function(e) {
   $('input[data-switch]').spinaSwitch();
 });
+
+// Dynamically ticket_fields as a nested form
+$(document).on('click', 'form .add_ticket_fields', function(event) {
+  var regexp, time;
+  time = new Date().getTime();
+  regexp = new RegExp($(this).data('id'), 'g');
+  $(this).before($(this).data('fields').replace(regexp, time));
+  $(this).closest('form').trigger('spina:ticket_fields_added');
+  $('.no-tickets').slideUp();
+  event.preventDefault();
+});
+
+$(document).on('spina:ticket_fields_added', 'form', function(e) {
+  $('input[data-switch]').spinaSwitch();
+});
