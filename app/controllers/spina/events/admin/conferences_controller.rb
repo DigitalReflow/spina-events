@@ -73,6 +73,7 @@ module Spina::Events
 
       def conference_params
         params.require(:conference).permit( :title,
+                                            :sub_title,
                                             :slug,
                                             :description,
                                             :photo_id,

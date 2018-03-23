@@ -2,6 +2,7 @@ class CreateSpinaEventsConferences < ActiveRecord::Migration[5.1]
   def change
     create_table :spina_events_conferences do |t|
       t.string :title
+      t.string :sub_title
       t.text :description
       t.string :slug, unique: true
       t.boolean :draft, default: true
