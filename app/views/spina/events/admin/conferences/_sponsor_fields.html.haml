@@ -4,7 +4,7 @@
       .horizontal-form-label
         = Spina::Events::Conference.human_attribute_name(:sponsor_type)
       .horizontal-form-content
-        = f.select :sponsor_type, options_for_select([['Gold', 'gold'], ['Silver', 'silver'], ['Bronze', 'bronze']], f.object.sponsor_type), {}, class: 'select2', style: 'width: 100%'
+        = f.text_field :sponsor_type
     .horizontal-form-group
       .horizontal-form-label
         = Spina::Events::Conference.human_attribute_name(:organisation)
