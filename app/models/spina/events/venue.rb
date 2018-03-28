@@ -1,5 +1,6 @@
 module Spina::Events
   class Venue < ApplicationRecord
+    extend Mobility
     extend FriendlyId
 
     geocoded_by :postcode
@@ -11,6 +12,8 @@ module Spina::Events
     has_many :events
 
     validates :name, presence: true, uniqueness: true
+
+    translates :name, :description, :slug, :address_line_1, :address_line_2, :city, :country
 
     def full_address
       "#{address_line_1}, #{address_line_2}, #{city}, #{postcode}, #{country}"
