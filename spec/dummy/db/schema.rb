@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180103223636) do
+ActiveRecord::Schema.define(version: 20180329111576) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -69,8 +69,23 @@ ActiveRecord::Schema.define(version: 20180103223636) do
     t.integer "speaker_id"
   end
 
+  create_table "spina_events_conference_translations", force: :cascade do |t|
+    t.integer "spina_events_conference_id", null: false
+    t.string "locale", null: false
+    t.string "title"
+    t.string "sub_title"
+    t.text "description"
+    t.text "conference_contact"
+    t.text "sponsorship_info"
+    t.string "slug"
+    t.string "location"
+    t.index ["locale"], name: "index_spina_events_conference_translations_on_locale"
+    t.index ["spina_events_conference_id"], name: "conference_tranlations_index"
+  end
+
   create_table "spina_events_conferences", force: :cascade do |t|
     t.string "title"
+    t.string "sub_title"
     t.text "description"
     t.string "slug"
     t.boolean "draft", default: true
@@ -87,6 +102,19 @@ ActiveRecord::Schema.define(version: 20180103223636) do
     t.index ["slug"], name: "index_spina_events_conferences_on_slug"
   end
 
+  create_table "spina_events_organisation_translations", force: :cascade do |t|
+    t.integer "spina_events_organisation_id", null: false
+    t.string "locale", null: false
+    t.string "name"
+    t.string "website"
+    t.string "slug"
+    t.string "twitter"
+    t.string "linkedin"
+    t.string "facebook"
+    t.index ["locale"], name: "index_spina_events_organisation_translations_on_locale"
+    t.index ["spina_events_organisation_id"], name: "organisation_tranlations_index"
+  end
+
   create_table "spina_events_organisations", force: :cascade do |t|
     t.string "name"
     t.string "website"
@@ -99,6 +127,15 @@ ActiveRecord::Schema.define(version: 20180103223636) do
     t.datetime "updated_at", null: false
   end
 
+  create_table "spina_events_question_translations", force: :cascade do |t|
+    t.integer "spina_events_question_id", null: false
+    t.string "locale", null: false
+    t.string "title"
+    t.text "body"
+    t.index ["locale"], name: "index_spina_events_question_translations_on_locale"
+    t.index ["spina_events_question_id"], name: "question_tranlations_index"
+  end
+
   create_table "spina_events_questions", force: :cascade do |t|
     t.string "title"
     t.text "body"
@@ -106,6 +143,17 @@ ActiveRecord::Schema.define(version: 20180103223636) do
     t.integer "conference_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+  end
+
+  create_table "spina_events_speaker_translations", force: :cascade do |t|
+    t.integer "spina_events_speaker_id", null: false
+    t.string "locale", null: false
+    t.string "name"
+    t.string "slug"
+    t.string "job_title"
+    t.text "bio"
+    t.index ["locale"], name: "index_spina_events_speaker_translations_on_locale"
+    t.index ["spina_events_speaker_id"], name: "speaker_tranlations_index"
   end
 
   create_table "spina_events_speakers", force: :cascade do |t|
@@ -120,10 +168,27 @@ ActiveRecord::Schema.define(version: 20180103223636) do
     t.datetime "updated_at", null: false
   end
 
+  create_table "spina_events_sponsor_translations", force: :cascade do |t|
+    t.integer "spina_events_sponsor_id", null: false
+    t.string "locale", null: false
+    t.string "sponsor_type"
+    t.index ["locale"], name: "index_spina_events_sponsor_translations_on_locale"
+    t.index ["spina_events_sponsor_id"], name: "sponsor_tranlations_index"
+  end
+
   create_table "spina_events_sponsors", force: :cascade do |t|
     t.string "sponsor_type"
     t.integer "conference_id"
     t.integer "organisation_id"
+  end
+
+  create_table "spina_events_ticket_translations", force: :cascade do |t|
+    t.integer "spina_events_ticket_id", null: false
+    t.string "locale", null: false
+    t.string "name"
+    t.text "description"
+    t.index ["locale"], name: "index_spina_events_ticket_translations_on_locale"
+    t.index ["spina_events_ticket_id"], name: "ticket_translations_index"
   end
 
   create_table "spina_events_tickets", force: :cascade do |t|
@@ -134,6 +199,21 @@ ActiveRecord::Schema.define(version: 20180103223636) do
     t.integer "conference_id"
     t.integer "position"
     t.index ["conference_id"], name: "index_spina_events_tickets_on_conference_id"
+  end
+
+  create_table "spina_events_venue_translations", force: :cascade do |t|
+    t.integer "spina_events_venue_id", null: false
+    t.string "locale", null: false
+    t.string "name"
+    t.text "description"
+    t.string "address_line_1"
+    t.string "address_line_2"
+    t.string "city"
+    t.string "country"
+    t.string "postcode"
+    t.string "slug"
+    t.index ["locale"], name: "index_spina_events_venue_translations_on_locale"
+    t.index ["spina_events_venue_id"], name: "venue_tranlations_index"
   end
 
   create_table "spina_events_venues", force: :cascade do |t|
