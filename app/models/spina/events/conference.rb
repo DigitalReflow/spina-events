@@ -1,5 +1,6 @@
 module Spina::Events
   class Conference < ApplicationRecord
+    extend Mobility
     extend FriendlyId
 
     friendly_id :title, use: :slugged
@@ -30,6 +31,8 @@ module Spina::Events
 
     scope :draft, -> { where(draft: true) }
     scope :live, -> { where(draft: false) }
+
+    translates :title, :sub_title, :description, :slug, :conference_contact, :sponsorship_info, :location
 
     private
 

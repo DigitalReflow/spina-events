@@ -26,7 +26,7 @@ module Spina::Events
     end
 
     def try_redirect
-      rule = RewriteRule.find_by!(old_path: "/conferences/#{params[:id]}")
+      rule = Spina::RewriteRule.find_by!(old_path: "/conferences/#{params[:id]}")
       redirect_to rule.new_path, status: :moved_permanently
     end
   end

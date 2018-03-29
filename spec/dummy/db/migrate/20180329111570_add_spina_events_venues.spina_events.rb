@@ -1,3 +1,4 @@
+# This migration comes from spina_events (originally 4)
 class AddSpinaEventsVenues < ActiveRecord::Migration[5.1]
   def change
     create_table :spina_events_venues do |t|
