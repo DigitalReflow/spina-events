@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180103223636) do
+ActiveRecord::Schema.define(version: 20180330002910) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -106,6 +106,15 @@ ActiveRecord::Schema.define(version: 20180103223636) do
     t.integer "conference_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+  end
+
+  create_table "spina_events_sessions", force: :cascade do |t|
+    t.integer "conference_id"
+    t.string "title"
+    t.text "description"
+    t.datetime "start_at"
+    t.datetime "end_at"
+    t.index ["conference_id"], name: "index_spina_events_sessions_on_conference_id"
   end
 
   create_table "spina_events_speakers", force: :cascade do |t|
