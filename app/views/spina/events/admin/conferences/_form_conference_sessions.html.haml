@@ -1,0 +1,10 @@
+#conference_sessions.tab-content
+  - if @conference.sessions.present?
+    = f.fields_for :sessions do |session|
+      = render 'session_fields', f: session
+  - else
+    .well.no-sponsors
+      No sessions
+  = link_to_add_session f, :sessions do
+    = icon('plus')
+    = t('spina.events.sponsors.add_session')
