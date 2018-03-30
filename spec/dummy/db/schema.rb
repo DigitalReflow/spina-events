@@ -10,10 +10,18 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180330002910) do
+ActiveRecord::Schema.define(version: 20180103223636) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "event_session_types", force: :cascade do |t|
+    t.string "name"
+    t.integer "session_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["session_id"], name: "index_event_session_types_on_session_id"
+  end
 
   create_table "friendly_id_slugs", force: :cascade do |t|
     t.string "slug", null: false
@@ -115,6 +123,8 @@ ActiveRecord::Schema.define(version: 20180330002910) do
     t.text "description"
     t.datetime "start_at"
     t.datetime "end_at"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
     t.index ["conference_id"], name: "index_spina_events_sessions_on_conference_id"
   end
 
