@@ -71,6 +71,7 @@ ActiveRecord::Schema.define(version: 20180330002910) do
 
   create_table "spina_events_conferences", force: :cascade do |t|
     t.string "title"
+    t.string "sub_title"
     t.text "description"
     t.string "slug"
     t.boolean "draft", default: true
