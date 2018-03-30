@@ -14,6 +14,9 @@ module Spina::Events
     has_many :conference_attendees
     has_many :attendees, through: :conference_attendees, source: :organisation
 
+    has_many :sessions
+    accepts_nested_attributes_for :sessions, allow_destroy: true
+
     has_many :sponsors
     accepts_nested_attributes_for :sponsors, allow_destroy: true
 
