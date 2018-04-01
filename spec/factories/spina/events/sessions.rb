@@ -3,7 +3,7 @@ FactoryBot.define do
     sequence(:title) { |n| "Session #{n}" }
     association :conference, factory: :spina_events_conference
     description 'Good session'
-    start_at Time.now.advance(days: 1)
-    end_at Time.now.advance(days: 1, hours: 1)
+    duration_minutes 60
+    position 1
   end
 end
