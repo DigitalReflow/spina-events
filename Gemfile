@@ -14,3 +14,7 @@ gemspec
 # gem 'byebug', group: [:development, :test]
 gem 'pry-rails', group: [:development, :test]
 gem 'spina', github: 'SpinaCMS/Spina'
+
+group :test do
+  gem 'shoulda-matchers', '~> 3.1'
+end
