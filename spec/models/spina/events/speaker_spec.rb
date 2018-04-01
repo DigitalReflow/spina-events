@@ -15,5 +15,11 @@ module Spina::Events
       it { is_expected.to_not be_valid }
       it { expect{speaker.save}.to_not change(Spina::Events::Speaker, :count) }
     end
+
+    it "generates a slug" do
+      expect(speaker.slug).to be_nil
+      speaker.save
+      expect(speaker.slug).to be_present
+    end
   end
 end
