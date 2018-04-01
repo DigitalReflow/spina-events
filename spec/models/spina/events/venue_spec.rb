@@ -15,5 +15,18 @@ module Spina::Events
       it { is_expected.to_not be_valid }
       it { expect{venue.save}.to_not change(Spina::Events::Venue, :count) }
     end
+
+    describe '#full_address' do
+      it 'returns the formatted full address' do
+        venue = Venue.new(
+          address_line_1: '123 street',
+          address_line_2: 'appt 406',
+          city: 'Orlando',
+          postcode: 48303,
+          country: 'US'
+        )
+        expect(venue.full_address).to eq('123 street, appt 406, Orlando, 48303, US')
+      end
+    end
   end
 end
