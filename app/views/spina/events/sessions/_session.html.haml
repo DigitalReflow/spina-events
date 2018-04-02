@@ -1,0 +1,3 @@
+%li{class: dom_class(session), id: dom_id(session)}
+  %h3= link_to session.title, spina.events_conference_session_path(@conference, session)
+  != session.description
