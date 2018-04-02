@@ -3,8 +3,8 @@
     = f.fields_for :sessions do |session|
       = render 'session_fields', f: session
   - else
-    .well.no-sponsors
+    .well.no-sessions
       No sessions
   = link_to_add_session f, :sessions do
     = icon('plus')
-    = t('spina.events.sponsors.add_session')
+    = t('spina.events.sessions.add_session')
