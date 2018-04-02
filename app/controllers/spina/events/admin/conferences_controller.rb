@@ -87,7 +87,7 @@ module Spina::Events
                                             :venue_id,
                                             attendee_ids: [],
                                             speaker_ids: [],
-                                            session_ids: [],
+                                            sessions_attributes: [:title, :description, :duration_minutes, :position, :_destroy, :id],
                                             sponsors_attributes: [:sponsor_type, :_destroy, :id, :organisation_id],
                                             questions_attributes: [:title, :body, :_destroy, :id, :position],
                                             tickets_attributes: [:name, :description, :code, :price, :_destroy, :id, :position] )
