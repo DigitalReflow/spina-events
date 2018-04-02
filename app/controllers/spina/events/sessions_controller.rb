@@ -9,7 +9,7 @@ module Spina::Events
     end
 
     def show
-      @session = Spina::Events::Session.friendly.find(params[:id])
+      @session = Spina::Events::Session.find(params[:id])
       render layout: "#{current_theme.name.parameterize.underscore}/application"
     end
 

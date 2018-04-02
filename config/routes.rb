@@ -6,6 +6,7 @@ Spina::Engine.routes.draw do
       resources :sponsors, only: [:index]
       resources :questions, only: [:index]
       resources :tickets, only: [:index]
+      resources :sessions, only: [:index, :show]
     end
 
     # Admin routes
