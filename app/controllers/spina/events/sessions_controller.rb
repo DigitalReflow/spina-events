@@ -1,15 +1,15 @@
 module Spina::Events
-  class SpeakersController < ApplicationController
+  class SessionsController < ApplicationController
 
     before_action :find_conference
 
     def index
-      @speakers = @conference.sessions
+      @sessions = @conference.sessions
       render layout: "#{current_theme.name.parameterize.underscore}/application"
     end
 
     def show
-      @speaker = Spina::Events::Speaker.friendly.find(params[:id])
+      @session = Spina::Events::Session.friendly.find(params[:id])
       render layout: "#{current_theme.name.parameterize.underscore}/application"
     end
 
