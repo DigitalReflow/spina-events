@@ -25,3 +25,9 @@
         = t('spina.delete')
       .horizontal-form-content
         = f.check_box :_destroy, data: { switch: true }
+    .horizontal-form-group
+      .horizontal-form-label
+        = Spina::Events::Session.human_attribute_name(:speakers)
+      .horizontal-form-content
+        = f.fields_for :session_speakers_attributes do |sp|
+          = sp.select :speaker_ids, options_for_select(Spina::Events::Speaker.all.collect {|p| [ p.name, p.id ] }, f.object.speakers.ids), { :prompt => "Please select"}, { :multiple => true, include_blank: false}
