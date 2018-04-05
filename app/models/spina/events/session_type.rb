@@ -1,6 +1,6 @@
 module Spina::Events
   class SessionType < ApplicationRecord
-    belongs_to :session
+    has_many :sessions
     validates :name, presence: true
   end
 end
