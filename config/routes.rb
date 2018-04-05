@@ -16,7 +16,7 @@ Spina::Engine.routes.draw do
         resources :conferences do
           resources :sessions
         end
-
+        resources :session_types
         resources :organisations
         resources :venues
         resources :speakers

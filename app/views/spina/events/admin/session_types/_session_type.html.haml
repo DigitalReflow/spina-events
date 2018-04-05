@@ -1,0 +1,8 @@
+%li.dd-item{data: { id: session_type.id }}
+  %div.dd-item-inner
+    = link_to spina.edit_events_admin_session_type_path(id: session_type.id), class: 'button button-link button-small sortable-link' do
+      = session_type.name
+    %span.pull-right
+      = link_to spina.edit_events_admin_session_type_path(id: session_type.id), class: 'button button-link' do
+        = icon 'pencil-outline'
+        = t('spina.events.session_types.edit')
