@@ -1,0 +1,16 @@
+%header#header
+  .breadcrumbs= render_breadcrumbs seperator: '<div class="divider"></div>'
+  #header_actions
+    %span
+      = link_to spina.new_events_admin_session_type_path, class: 'button button-primary' do
+        = icon('plus')
+        = t('spina.events.session_types.new')
+
+.well
+  - if @session_types.any?
+    .dd#pages_list
+      %ol.dd-list
+        = render partial: 'session_type', collection: @session_types
+  - else
+    %em
+      = t('spina.events.session_types.empty', scaffold_name: t('spina.events.session_types.scaffold_name_plural'))

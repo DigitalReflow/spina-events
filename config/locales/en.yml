@@ -62,6 +62,13 @@ en:
         saving: Saving...
         saved: Session saved
 
+      session_types:
+        title: Session types
+        new: New session type
+        save: Save session type
+        saving: Saving...
+        saved: Session type saved
+
   activerecord:
     attributes:
       spina/events/conference:
