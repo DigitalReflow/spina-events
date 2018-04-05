@@ -41,6 +41,7 @@
 
 - Mobility.with_locale(@locale) do
   - @tabs.each do |tab|
+    - next if tab.include?('conference_session')
     = render "spina/events/admin/conferences/form_#{tab}", f: f
 
 - unless @conference.new_record?
