@@ -64,7 +64,7 @@ module Spina::Events
       end
 
       def set_tabs
-        @tabs = %w{conference_content conference_speakers conference_sponsors conference_questions conference_tickets conference_configuration}
+        @tabs = %w{conference_content conference_speakers conference_sessions conference_sponsors conference_questions conference_tickets conference_configuration}
       end
 
       def set_locale

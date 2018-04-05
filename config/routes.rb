@@ -6,12 +6,17 @@ Spina::Engine.routes.draw do
       resources :sponsors, only: [:index]
       resources :questions, only: [:index]
       resources :tickets, only: [:index]
+      resources :sessions, only: [:index, :show]
     end
 
     # Admin routes
     namespace :admin, path: Spina.config.backend_path do
       scope '/events' do
-        resources :conferences
+
+        resources :conferences do
+          resources :sessions
+        end
+
         resources :organisations
         resources :venues
         resources :speakers

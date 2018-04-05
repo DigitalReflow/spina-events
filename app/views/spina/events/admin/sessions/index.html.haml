@@ -1,0 +1,16 @@
+%header#header
+  .breadcrumbs= render_breadcrumbs seperator: '<div class="divider"></div>'
+  #header_actions
+    %span
+      = link_to spina.new_events_admin_conference_session_path, class: 'button button-primary' do
+        = icon('plus')
+        = t('spina.events.sessions.new')
+
+.well
+  - if @sessions.any?
+    .dd#pages_list
+      %ol.dd-list
+        = render partial: 'session', collection: @sessions
+  - else
+    %em
+      = t('spina.events.sessions.empty', scaffold_name: t('spina.events.sessions.scaffold_name_plural'))
