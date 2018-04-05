@@ -45,7 +45,7 @@
       .horizontal-form-label
         = Spina::Events::Session.human_attribute_name(:session_type)
       .horizontal-form-content
-        = f.select :session_type_id, options_for_select(Spina::Events::SessionType.all.collect {|p| [ p.name, p.id ] }, f.object.session_type_id), { :prompt => "Please select"}, { include_blank: false }
+        = f.select :session_type_id, options_for_select(Spina::Events::SessionType.pluck(:name, :id), f.object.session_type_id), {}, class: 'select2', style: 'width: 100%'
     .horizontal-form-group
       .horizontal-form-label
         = Spina::Events::Session.human_attribute_name(:duration_minutes)
