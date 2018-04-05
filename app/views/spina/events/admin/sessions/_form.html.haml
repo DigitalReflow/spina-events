@@ -1,0 +1,61 @@
+- if @session.errors.any?
+  - content_for :notifications do
+    .notification.notification-danger.animated.fadeInRight
+      = icon('exclamation')
+      .notification-message
+        =t 'spina.notifications.alert'
+        %small= @session.errors.full_messages.join('<br />').html_safe
+      = link_to '#', data: {close_notification: true} do
+        = icon('cross')
+
+%header#header
+  .breadcrumbs= render_breadcrumbs separator: '<div class="divider"></div>'
+  - unless @session.new_record?
+    - if Spina.config.locales.size > 1
+      %div{style: 'display: inline-block; margin-left: 12px; top: -4px', data: {dropdown: true}}
+        = link_to '#', class: 'button button-link button-round button-small', data: {trigger: 'dropdown', target: '#locales'} do
+          = icon('comment')
+          = @locale.upcase
+
+        %ul#locales
+          - Spina.config.locales.each do |locale|
+            %li
+              = link_to t("languages.#{locale}"), "?locale=#{locale}", style: ('font-weight: 600' if @locale.to_s == locale.to_s)
+
+  #header_actions
+    %button.button.button-primary{type: 'submit', style: 'margin-right: 0', data: {disable_with: t('spina.events.sessions.saving')}}
+      = icon('check')
+      = t('spina.events.sessions.save')
+
+= hidden_field_tag :locale, @locale
+
+.well
+  .horizontal-form
+    .horizontal-form-group
+      .horizontal-form-label
+        = Spina::Events::Session.human_attribute_name(:title)
+      .horizontal-form-content
+        = f.text_field :title
+    .horizontal-form-group
+      .horizontal-form-label
+        = Spina::Events::Session.human_attribute_name(:description)
+      .horizontal-form-content
+        = f.text_area :description
+    .horizontal-form-group
+      .horizontal-form-label
+        = Spina::Events::Session.human_attribute_name(:duration_minutes)
+      .horizontal-form-content
+        = f.number_field :duration_minutes
+    .horizontal-form-group
+      .horizontal-form-label
+        = Spina::Events::Session.human_attribute_name(:position)
+      .horizontal-form-content
+        = f.number_field :position
+    .horizontal-form-group
+      .horizontal-form-label
+        = Spina::Events::Session.human_attribute_name(:speakers)
+      .horizontal-form-content
+        = f.select :speaker_ids, options_for_select(Spina::Events::Speaker.all.collect {|p| [ p.name, p.id ] }, f.object.speakers.ids), { :prompt => "Please select"}, { :multiple => true, include_blank: false}
+
+- unless @session.new_record?
+  .pull-right= link_to t('spina.permanently_delete'), spina.events_admin_conference_session_path(@session.id, conference_id: @session.conference_id), method: :delete, data: {confirm: t('spina.sessions.delete_confirmation', subject: @session.title)}, class: 'button button-link button-danger'

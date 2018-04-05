@@ -31,7 +31,11 @@
     %ul
       - @tabs.each_with_index do |tab, i|
         %li{class: (i==0 ? 'active' : '')}
-          = link_to t("spina.events.conferences.#{tab}"), "##{tab}"
+          - if tab.include?('conference_sessions')
+            - if @conference.persisted?
+              = link_to t("spina.events.conferences.#{tab}"), spina.events_admin_conference_sessions_path(conference_id: @conference.id)
+          - else
+            = link_to t("spina.events.conferences.#{tab}"), "##{tab}"
 
 = hidden_field_tag :locale, @locale
 

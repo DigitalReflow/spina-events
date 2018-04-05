@@ -57,6 +57,10 @@ en:
 
       sessions:
         title: Sessions
+        new: New session
+        save: Save session
+        saving: Saving...
+        saved: Session saved
 
   activerecord:
     attributes:

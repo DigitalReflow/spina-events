@@ -12,7 +12,11 @@ Spina::Engine.routes.draw do
     # Admin routes
     namespace :admin, path: Spina.config.backend_path do
       scope '/events' do
-        resources :conferences
+
+        resources :conferences do
+          resources :sessions
+        end
+
         resources :organisations
         resources :venues
         resources :speakers
