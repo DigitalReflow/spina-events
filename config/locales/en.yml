@@ -40,6 +40,7 @@ en:
         save: Save speaker
         saving: Saving...
         saved: Speaker saved
+        add: Add/Remove speakers
 
       questions:
         title: Questions
