@@ -14,9 +14,10 @@ Spina::Engine.routes.draw do
       scope '/events' do
 
         resources :conferences do
-          resources :sessions do
-            post :sort, on: :collection
-          end
+        resources :sessions do
+          post :sort, on: :collection
+        end
+        resources :speakers, controller: "conference/speakers"
         end
         resources :session_types
         resources :organisations

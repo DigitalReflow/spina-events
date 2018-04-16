@@ -1,0 +1,4 @@
+%li.dd-item{data: { id: speaker.id }}
+  %div.dd-item-inner
+    = link_to spina.edit_events_admin_speaker_path(speaker.id), class: 'button button-link button-small sortable-link' do
+      = speaker.name
