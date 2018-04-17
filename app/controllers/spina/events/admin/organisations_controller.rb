@@ -27,7 +27,7 @@ module Spina::Events
       end
 
       def edit
-        @organisation = Spina::Events::Organisation.find params[:id]
+        @organisation = Spina::Events::Organisation.find(params[:id])
         add_breadcrumb @organisation.name
         render layout: 'spina/admin/admin'
       end
@@ -51,7 +51,7 @@ module Spina::Events
       end
 
       def destroy
-        @organisation = Spina::Events::Organisation.find(params[:id])
+        @organisation = Spina::Events::Organisation.friendly.find(params[:id])
         @organisation.destroy
         redirect_to spina.events_admin_organisations_path
       end

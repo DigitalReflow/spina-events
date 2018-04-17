@@ -27,7 +27,7 @@ module Spina::Events
       end
 
       def edit
-        @venue = Spina::Events::Venue.find params[:id]
+        @venue = Spina::Events::Venue.find(params[:id])
         add_breadcrumb @venue.name
         render layout: 'spina/admin/admin'
       end
@@ -51,7 +51,7 @@ module Spina::Events
       end
 
       def destroy
-        @venue = Spina::Events::Venue.find(params[:id])
+        @venue = Spina::Events::Venue.friendly.find(params[:id])
         @venue.destroy
         redirect_to spina.events_admin_venues_path
       end

@@ -101,4 +101,4 @@
             = f.hidden_field :photo_id, data: { hidden_field_id: 'photo_id'}
 
   - unless @venue.new_record?
-    .pull-right= link_to t('spina.permanently_delete'), spina.events_admin_organisation_path(@venue), method: :delete, data: {confirm: t('spina.blog.venue.delete_confirmation', subject: @venue.name)}, class: 'button button-link button-danger'
+    .pull-right= link_to t('spina.permanently_delete'), spina.events_admin_venue_path(@venue), method: :delete, data: {confirm: t('spina.blog.venue.delete_confirmation', subject: @venue.name)}, class: 'button button-link button-danger'

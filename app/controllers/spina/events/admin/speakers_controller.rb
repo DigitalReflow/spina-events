@@ -51,7 +51,7 @@ module Spina::Events
       end
 
       def destroy
-        @speaker = Spina::Events::Speaker.find(params[:id])
+        @speaker = Spina::Events::Speaker.friendly.find(params[:id])
         @speaker.destroy
         redirect_to spina.events_admin_speakers_path
       end
