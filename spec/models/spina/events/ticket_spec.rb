@@ -18,10 +18,10 @@ module Spina::Events
       expect(ticket.errors.keys).to include(:code)
     end
 
-    it 'validates the presence of price' do
-      ticket.price = nil
+    it 'validates the presence of current_price' do
+      ticket.current_price = nil
       expect(ticket.valid?).to be(false)
-      expect(ticket.errors.keys).to include(:price)
+      expect(ticket.errors.keys).to include(:current_price)
     end
   end
 end

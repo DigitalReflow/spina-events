@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180405015027) do
+ActiveRecord::Schema.define(version: 20180430211042) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -161,6 +161,8 @@ ActiveRecord::Schema.define(version: 20180405015027) do
     t.decimal "price", precision: 8, scale: 2, default: "0.0"
     t.integer "conference_id"
     t.integer "position"
+    t.decimal "early_bird_price", precision: 8, scale: 2, default: "0.0"
+    t.decimal "current_price", precision: 8, scale: 2, default: "0.0"
     t.index ["conference_id"], name: "index_spina_events_tickets_on_conference_id"
   end
 
