@@ -4,7 +4,7 @@ module Spina::Events
     before_action :find_conference
 
     def index
-      @sessions = @conference.sessions
+      @sessions = @conference.sessions.sort_by_position
       render layout: "#{current_theme.name.parameterize.underscore}/application"
     end
 

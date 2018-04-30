@@ -7,7 +7,7 @@ module Spina::Events
       layout 'spina/admin/events'
 
       def index
-        @sessions = current_conference.sessions.order(created_at: :desc)
+        @sessions = current_conference.sessions.sort_by_position
       end
 
       def new
@@ -60,10 +60,21 @@ module Spina::Events
         end
       end
 
+      def sort
+        params[:list].each_pair do |parent_pos, parent_node|
+          update_session_position(parent_node, parent_pos)
+        end
+        head :ok
+      end
+
       def destroy
         @session = current_conference.sessions.find(params[:id])
         @session.destroy
         redirect_to spina.events_admin_conference_sessions_path(conference_id: params[:conference_id])
+      end
+
+      def update_session_position(session, position)
+        Spina::Events::Session.update(session[:id], position: position.to_i + 1)
       end
 
       private

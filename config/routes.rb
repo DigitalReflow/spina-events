@@ -14,7 +14,9 @@ Spina::Engine.routes.draw do
       scope '/events' do
 
         resources :conferences do
-          resources :sessions
+          resources :sessions do
+            post :sort, on: :collection
+          end
         end
         resources :session_types
         resources :organisations

@@ -53,11 +53,6 @@
         = f.number_field :duration_minutes
     .horizontal-form-group
       .horizontal-form-label
-        = Spina::Events::Session.human_attribute_name(:position)
-      .horizontal-form-content
-        = f.number_field :position
-    .horizontal-form-group
-      .horizontal-form-label
         = Spina::Events::Session.human_attribute_name(:speakers)
       .horizontal-form-content
         = f.select :speaker_ids, options_for_select(Spina::Events::Speaker.pluck(:name, :id), f.object.speakers.ids), {}, class: 'select2', style: 'width: 100%', multiple: true

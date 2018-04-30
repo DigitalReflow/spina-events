@@ -5,10 +5,13 @@
       = link_to spina.new_events_admin_conference_session_path, class: 'button button-primary' do
         = icon('plus')
         = t('spina.events.sessions.new')
+      = link_to '#pages_list', class: 'button sort-switch', data: {change_order: t('spina.pages.change_order'), done_changing_order: t('spina.pages.done_changing_order')} do
+        = icon('random')
+        = t('spina.pages.change_order')
 
 .well
   - if @sessions.any?
-    .dd#pages_list
+    .dd#pages_list{data: {:"sort-url" => spina.sort_events_admin_conference_sessions_url }}
       %ol.dd-list
         = render partial: 'session', collection: @sessions
   - else
