@@ -6,10 +6,10 @@
       %button.button.button-primary{type: 'submit', style: 'margin-right: 0', data: {disable_with: t('spina.events.conferences.saving')}}
         = icon('check')
         = t('spina.events.conferences.save')
-
-  .horizontal-form
-    .horizontal-form-group
-      .horizontal-form-label
-        = Spina::Events::Conference.human_attribute_name(:speakers)
-      .horizontal-form-content
-        = f.select :speaker_ids, options_for_select(Spina::Events::Speaker.pluck(:name, :id), f.object.speakers.ids), {}, class: 'select2', style: 'width: 100%', multiple: true
+  .well
+    .horizontal-form
+      .horizontal-form-group
+        .horizontal-form-label
+          = Spina::Events::Conference.human_attribute_name(:speakers)
+        .horizontal-form-content
+          = f.select :speaker_ids, options_for_select(Spina::Events::Speaker.pluck(:name, :id), f.object.speakers.ids), {}, class: 'select2', style: 'width: 100%', multiple: true

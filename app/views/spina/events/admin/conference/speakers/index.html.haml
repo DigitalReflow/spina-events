@@ -5,10 +5,13 @@
       = link_to spina.events_admin_conference_edit_admin_conference_speaker_path, class: 'button button-primary' do
         = icon('plus')
         = t('spina.events.speakers.add')
+      = link_to '#pages_list', class: 'button sort-switch', data: {change_order: t('spina.pages.change_order'), done_changing_order: t('spina.pages.done_changing_order')} do
+        = icon('random')
+        = t('spina.pages.change_order')
 
 .well
   - if @speakers.any?
-    .dd#pages_list
+    .dd#pages_list{data: {:"sort-url" => spina.sort_events_admin_conference_speakers_url }}
       %ol.dd-list
         = render partial: 'speaker', collection: @speakers
   - else
