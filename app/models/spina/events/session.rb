@@ -12,5 +12,11 @@ module Spina::Events
     def duration_in_minutes=(new_time)
       duration = new_time.to_i.minutes
     end
+
+    def start_time
+      current_sort_index = conference.sessions.sort_by_position.index(self)
+      sessions_before = conference.sessions.sort_by_position.take(current_sort_index)
+      DateTime.now.change({hour: 9, minute: 0}).advance(minutes: sessions_before.sum(&:duration_minutes))
+    end
   end
 end
