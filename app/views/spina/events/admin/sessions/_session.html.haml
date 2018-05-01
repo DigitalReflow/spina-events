@@ -2,6 +2,7 @@
   %div.dd-item-inner
     = link_to spina.edit_events_admin_conference_session_path(id: session.id), class: 'button button-link button-small sortable-link' do
       = session.title
+      %span.list-hint-label (#{session.start_time.strftime("%H:%M")})
     %span.pull-right
       = link_to spina.events_conference_session_path(id: session.id), class: 'button button-small button-link dd-nodrag', target: :blank do
         = icon 'eye'
