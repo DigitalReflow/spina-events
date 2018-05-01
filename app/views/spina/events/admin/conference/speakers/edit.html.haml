@@ -1,4 +1,4 @@
-= form_for [spina, :events, :admin, @conference], url: spina.events_admin_conference_speaker_path(@conference.id), html: {id: 'speaker_form', autocomplete: "off"} do |f|
+= form_for [spina, :events, :admin, @conference], url: spina.events_admin_conference_speaker_path(id: @conference.id), html: {id: 'speaker_form', autocomplete: "off"} do |f|
   %header#header
     .breadcrumbs= render_breadcrumbs separator: '<div class="divider"></div>'
 
