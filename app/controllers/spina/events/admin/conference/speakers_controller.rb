@@ -13,7 +13,7 @@ module Spina::Events
 
         def edit
           @conference = current_conference
-          add_breadcrumb I18n.t('spina.events.speakers.new')
+          add_breadcrumb 'Add speakers'
           render layout: 'spina/admin/admin'
         end
 
@@ -30,6 +30,17 @@ module Spina::Events
               end
             end
           end
+        end
+
+        def sort
+          params[:list].each_with_index do |speaker, position|
+            update_speaker_position(speaker, position)
+          end
+          head :ok
+        end
+
+        def update_speaker_position(speaker, position)
+          Spina::Events::ConferenceSpeaker.update(speaker_id: speaker[:id], position: position.to_i + 1, conference_id: current_conference[:id])
         end
 
         private
