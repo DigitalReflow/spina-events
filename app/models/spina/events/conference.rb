@@ -8,7 +8,7 @@ module Spina::Events
     belongs_to :attachment, optional: true
     belongs_to :venue
 
-    has_many :conference_speakers
+    has_many :conference_speakers, -> { order(position: :asc) }
     has_many :speakers, through: :conference_speakers
 
     has_many :conference_attendees
