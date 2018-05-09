@@ -84,6 +84,7 @@ module Spina::Events
                                             :location,
                                             :conference_contact,
                                             :sponsorship_info,
+                                            :currency,
                                             :venue_id,
                                             attendee_ids: [],
                                             speaker_ids: [],

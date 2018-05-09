@@ -18,3 +18,10 @@
           %small
             Current permalink:
             \ /conferences/#{@conference.slug}
+
+    .horizontal-form-group
+      .horizontal-form-label
+        = Spina::Events::Conference.human_attribute_name(:currency)
+      .horizontal-form-content
+        .select-dropdown
+          = f.select :currency, options_for_select([['GBP - $', '£'], ['EUR - €', '€'], ['USD - $', '$']])
