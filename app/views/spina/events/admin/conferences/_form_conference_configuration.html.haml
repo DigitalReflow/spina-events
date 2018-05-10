@@ -25,3 +25,9 @@
       .horizontal-form-content
         .select-dropdown
           = f.select :currency, options_for_select([['GBP - $', '£'], ['EUR - €', '€'], ['USD - $', '$']])
+
+    .horizontal-form-group
+      .horizontal-form-label
+        = Spina::Events::Conference.human_attribute_name(:daily_start_time)
+      .horizontal-form-content
+        = f.time_field :daily_start_time

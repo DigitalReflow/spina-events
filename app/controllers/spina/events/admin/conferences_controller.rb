@@ -76,6 +76,7 @@ module Spina::Events
                                             :sub_title,
                                             :slug,
                                             :description,
+                                            :daily_start_time,
                                             :photo_id,
                                             :draft,
                                             :attachment_id,
