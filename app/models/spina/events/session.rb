@@ -18,5 +18,13 @@ module Spina::Events
       sessions_before = conference.sessions.sort_by_position.take(current_sort_index)
       DateTime.now.change({hour: 9, minute: 0}).advance(minutes: sessions_before.sum(&:duration_minutes))
     end
+
+    def next_session
+      conference.sessions.where("position > ?", position).order("position ASC").first
+    end
+
+    def prev_session
+      conference.sessions.where("position < ?", position).order("position DESC").first
+    end
   end
 end
