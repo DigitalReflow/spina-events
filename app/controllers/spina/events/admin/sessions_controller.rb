@@ -92,7 +92,7 @@ module Spina::Events
       end
 
       def session_params
-        params.require(:session).permit(:title, :description, :duration_minutes, :position, :id, :session_type_id, speaker_ids:[])
+        params.require(:session).permit(:title, :description, :day, :duration_minutes, :position, :id, :session_type_id, speaker_ids:[])
       end
 
     end

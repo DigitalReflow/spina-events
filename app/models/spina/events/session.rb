@@ -1,5 +1,7 @@
 module Spina::Events
   class Session < ApplicationRecord
+    enum day: ['Day 1', 'Day 2', 'Day 3']
+
     belongs_to :conference
     belongs_to :session_type
     validates :title, :description, :duration_minutes, :position, presence: true

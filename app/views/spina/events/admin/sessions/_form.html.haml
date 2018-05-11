@@ -33,6 +33,11 @@
   .horizontal-form
     .horizontal-form-group
       .horizontal-form-label
+        = Spina::Events::Session.human_attribute_name(:day)
+      .horizontal-form-content
+        = f.select :day, Spina::Events::Session.days.keys, {}, class: 'select2', style: 'width: 100%'
+    .horizontal-form-group
+      .horizontal-form-label
         = Spina::Events::Session.human_attribute_name(:title)
       .horizontal-form-content
         = f.text_field :title

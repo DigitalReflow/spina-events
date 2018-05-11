@@ -5,5 +5,6 @@ FactoryBot.define do
     description 'Good session'
     duration_minutes 60
     position 1
+    day 1
   end
 end
