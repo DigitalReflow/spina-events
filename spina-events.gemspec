@@ -29,5 +29,5 @@ Gem::Specification.new do |s|
   s.add_development_dependency 'shoulda-matchers', '~> 3.1'
   s.add_development_dependency 'pry-rails', '~> 0'
   s.add_development_dependency 'rails-controller-testing', '~> 1.0.2', '>= 1.0.2'
-  s.add_development_dependency 'capybara', '~> 2.14.3', '>= 2.14.3'
+  s.add_development_dependency 'capybara', '>= 2.14.3', '~> 3.32.1'
 end
